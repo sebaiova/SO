@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "diccionario.h"
+#include "diccionario/diccionario.h"
 
 char veiled_word_s[DIC_WORD_MAX_SIZE];
 
@@ -53,15 +53,13 @@ int main() {
 
     /* Decirle al sistema que el modo input es RAW */
     system("/bin/stty raw && tput civis");
-    printf("Ingrese una letra (0 para salir)\n\n");
+    printf("\nIngrese una letra (0 para salir)\n\n");
 
     const char* word = NULL;
     char* veiled_word = NULL;
     size_t word_size;
     DIC_GetRandomWord(&word, &veiled_word, &word_size);
     int tries_left = 6;
-
-    printf("%s\n", word);
 
     while(true) {
         print_state(veiled_word, tries_left);
