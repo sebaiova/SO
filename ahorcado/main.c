@@ -8,7 +8,7 @@
 #include <string.h>
 #include <time.h>
 
-#define DIC_SIZE 10
+#define DIC_SIZE 9
 #define WORD_MAX_SIZE 12
 
 const char DIC[DIC_SIZE][WORD_MAX_SIZE] = { "embebido" 
