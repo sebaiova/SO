@@ -1,17 +1,31 @@
+/*********************************/
+/* Iovaldi, Sebastian - FAI 3482 */
+/* Medel, Joaquin     - FAI 3386 */
+/*********************************/
+
 #include <stdio.h>
 #include <stdlib.h>	/* para las funciones system y exit */
 #include <string.h>
 #include <time.h>
 
-#include "diccionario/diccionario.h"
+#define DIC_SIZE 10
+#define WORD_MAX_SIZE 12
 
-char veiled_word_s[DIC_WORD_MAX_SIZE];
-
+const char DIC[DIC_SIZE][WORD_MAX_SIZE] = { "embebido" 
+					  , "distribuido"
+					  , "monolitico"
+					  , "microkernel"
+					  , "memoria"
+					  , "proceso"
+					  , "usuario"
+					  , "programa"
+					  , "servicio" };
+char veiled_word_s[WORD_MAX_SIZE];
 enum bool { false, true };
 
-void DIC_GetRandomWord(const char* word[], char* veiled_word[], size_t* word_size){
+void GetRandomWord(const char* word[], char* veiled_word[], size_t* word_size){
     srand(time(0));
-    *word = WORDS[rand()%DIC_SIZE];
+    *word = DIC[rand()%DIC_SIZE];
     *word_size = strlen(*word);
     *veiled_word = veiled_word_s;
 
@@ -58,7 +72,7 @@ int main() {
     const char* word = NULL;
     char* veiled_word = NULL;
     size_t word_size;
-    DIC_GetRandomWord(&word, &veiled_word, &word_size);
+    GetRandomWord(&word, &veiled_word, &word_size);
     int tries_left = 6;
 
     while(true) {
