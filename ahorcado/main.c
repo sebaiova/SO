@@ -23,7 +23,8 @@ const char DIC[DIC_SIZE][WORD_MAX_SIZE] = { "embebido"
 char veiled_word_s[WORD_MAX_SIZE];
 enum bool { false, true };
 
-void GetRandomWord(const char* word[], char* veiled_word[], size_t* word_size){
+void GetRandomWord(const char* word[], char* veiled_word[], size_t* word_size)
+{
     srand(time(0));
     *word = DIC[rand()%DIC_SIZE];
     *word_size = strlen(*word);
@@ -63,8 +64,8 @@ enum bool is_unveiled(char veiled_word[])
     return success;
 }
 
-int main() {
-
+int main()
+{
     /* Decirle al sistema que el modo input es RAW */
     system("/bin/stty raw && tput civis");
     printf("\nIngrese una letra (0 para salir)\n\n");
