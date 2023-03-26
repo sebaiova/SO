@@ -31,7 +31,7 @@ void GetRandomWord(const char* word[], char* veiled_word[], size_t* word_size)
     *veiled_word = veiled_word_s;
 
     memset(veiled_word_s, '_', *word_size);
-    veiled_word_s[*word_size+1] = '\0';
+    veiled_word_s[*word_size] = '\0';
 }
 
 
